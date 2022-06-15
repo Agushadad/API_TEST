@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="API_Test" Class="ModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-UIL8RBG;Initial Catalog=API_Test;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="API_TestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Personajes" Member="Personajes">
+    <Type Name="Personajes">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Serie" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,24 +1,34 @@
-﻿using System;
+﻿using API_TEST.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using API_TEST.Core;
+using System.Linq;
+using API_TEST.Models;
 
 namespace API_TEST.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Personajes> Get()
         {
-            return new string[] { "value1", "value2" };
+            using (Manager objConnection = new Manager())
+            {
+                objConnection.Connect();
+                return objConnection.Factory.Personajes.AsEnumerable();
+            }
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [HttpGet]
+        public string GetNameById(int id)
         {
-            return "value";
+            using (Manager objConnection = new Manager())
+            {
+                objConnection.Connect();
+                var name = objConnection.Factory.Personajes.Where(x => x.Id == id).Select(x => x.Nombre).FirstOrDefault();            
+                return name;
+            }
         }
 
         // POST api/values
